@@ -4,7 +4,7 @@
             <div class="container mx-auto px-6 py-2">
                 <div class="text-right">
                   @can('Role create')
-                    <a href="{{route('admin.roles.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">New Role</a>
+                    <a href="{{route('admin.roles.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Ajouter Role</a>
                 </div>
                 @endcan
 
@@ -12,8 +12,8 @@
                 <table class="text-left w-full border-collapse">
                   <thead>
                     <tr>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light w-2/12">Role Name</th>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Permissions</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light w-2/12">Roles</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-center">Nombre des Utilisateurs</th>
                       <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right w-2/12">Actions</th>
                     </tr>
                   </thead>
@@ -21,23 +21,21 @@
                     @can('Role access')
                       @foreach($roles as $role)
                       <tr class="hover:bg-grey-lighter">
-                        <td class="py-4 px-6 border-b border-grey-light">{{ $role->name }}</td>
-                        <td class="py-4 px-6 border-b border-grey-light">
-                            @foreach($role->permissions as $permission)
-                              <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-500 rounded-full">{{ $permission->name }}</span>
-                            @endforeach
+                        <td class="py-4 px-4 border-b border-grey-light">{{ $role->name }}</td>
+                        <td class="py-4 px-6 border-b border-grey-light text-center">
+                        <span class="inline-flex items-center justify-center px-2 py-1 ml-2 text-xs font-bold leading-none text-white bg-gray-500 rounded-full">{{ $role->users()->count() }}</span>
                         </td>
-                        <td class="py-4 px-6 border-b border-grey-light text-right">
+                        <td class="py-2 px-2 border-b border-grey-light text-left">
 
                           @can('Role edit')
-                          <a href="{{route('admin.roles.edit',$role->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
+                          <a href="{{route('admin.roles.edit',$role->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Modifier</a>
                           @endcan
 
                           @can('Role delete')
                           <form action="{{ route('admin.roles.destroy', $role->id) }}" method="POST" class="inline">
                               @csrf
                               @method('delete')
-                              <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Delete</button>
+                              <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Supprimer</button>
                           </form>
                           @endcan
 

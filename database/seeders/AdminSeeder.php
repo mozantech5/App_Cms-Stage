@@ -24,20 +24,34 @@ class AdminSeeder extends Seeder
             'profile' => 'user.avif'
         ]);
 
-        $writer = User::create([
-            'name'=>'writer',
-            'email'=>'writer@writer.com',
+        $employe = User::create([
+            'name'=>'Employé',
+            'email'=>'employe@em.com',
+            'password'=>bcrypt('password')
+        ]);
+
+        $client = User::create([
+            'name'=>'Client',
+            'email'=>'client@cl.com',
             'password'=>bcrypt('password')
         ]);
 
 
-        $admin_role = Role::create(['name' => 'admin']);
-        $writer_role = Role::create(['name' => 'writer']);
+        $admin_role = Role::create(['name' => 'Admin']);
+        $employe_role = Role::create(['name' => 'Employé']);
+        $client_role = Role::create(['name' => 'Client']);
+
 
         $permission = Permission::create(['name' => 'Post access']);
         $permission = Permission::create(['name' => 'Post edit']);
         $permission = Permission::create(['name' => 'Post create']);
         $permission = Permission::create(['name' => 'Post delete']);
+        $permission = Permission::create(['name' => 'Post access_status']);
+
+        $permission = Permission::create(['name' => 'Task access']);
+        $permission = Permission::create(['name' => 'Task edit']);
+        $permission = Permission::create(['name' => 'Task create']);
+        $permission = Permission::create(['name' => 'Task delete']);
 
         $permission = Permission::create(['name' => 'Role access']);
         $permission = Permission::create(['name' => 'Role edit']);
@@ -57,10 +71,12 @@ class AdminSeeder extends Seeder
         $permission = Permission::create(['name' => 'Mail access']);
         $permission = Permission::create(['name' => 'Mail edit']);
 
-
+        
 
         $admin->assignRole($admin_role);
-        $writer->assignRole($writer_role);
+        $employe->assignRole($employe_role);
+        $client->assignRole($client_role);
+
 
 
         $admin_role->givePermissionTo(Permission::all());

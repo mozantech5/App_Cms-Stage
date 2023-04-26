@@ -27,10 +27,21 @@ class PostController extends Controller
      */
     public function index()
     {
-        $Post= Post::paginate(4);
+        // $Post= Post::paginate(4);
+        // return view('post.index',['posts'=>$Post]);
 
-        return view('post.index',['posts'=>$Post]);
+
+        $user = Auth::user();
+
+    if ($user->hasRole('Client')) {
+        $posts = Post::where('user_id', $user->id)->paginate(5);
+    } else {
+        $posts = Post::paginate(5);
     }
+
+    return view('post.index', compact('user', 'posts'));
+}
+
 
     /**
      * Show the form for creating a new resource.

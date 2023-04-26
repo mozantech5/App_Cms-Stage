@@ -30,7 +30,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
+        $user = auth()->user();        
+
         return view('setting.profile',['user'=>$user]);
     }
 

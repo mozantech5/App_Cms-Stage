@@ -2,8 +2,8 @@
   <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
       <div class="container mx-auto px-6 py-2">
           <div class="text-right">
-            @can('Post create')
-              <a href="{{route('admin.posts.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Ajouter Ticket</a>
+            @can('Task create')
+              <a href="{{route('admin.tasks.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Ajouter Task</a>
             @endcan
           </div>
 
@@ -19,19 +19,19 @@
               </tr>
             </thead>
             <tbody>
-              @can('Post access')
-                @foreach($posts as $post)
+              @can('Task access')
+                @foreach($tasks as $task)
                
                 <tr class="hover:bg-grey-lighter">
-                  <td class="py-4 px-6 border-b border-grey-light">{{ $post->title }}</td>
-                  <td class="py-4 px-6 border-b border-grey-light">@foreach($post->user->roles as $role)
+                  <td class="py-4 px-6 border-b border-grey-light">{{ $task->title }}</td>
+                  <td class="py-4 px-6 border-b border-grey-light">@foreach($task->user->roles as $role)
                   <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-500 rounded-full">{{ $role->name }}</span>
                   @endforeach
                 </td>
-                  <td class="py-4 px-6 border-b border-grey-light">{{ $post->user->name }}</td>
+                  <td class="py-4 px-6 border-b border-grey-light">{{ $task->user->name }}</td>
                   
                   <td class="py-4 px-6 border-b border-grey-light">
-                      @if($post->publish)
+                      @if($task->publish)
                       <span class="text-white inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-green-500 rounded-full">Réalisé</span>
                       @else
                       <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-xs font-bold leading-none text-white bg-gray-500 rounded-full">En Cours</span>
@@ -39,12 +39,12 @@
                   </td>
                   <td class="py-4 px-6 border-b border-grey-light text-right">
 
-                    @can('Post edit')
-                    <a href="{{route('admin.posts.edit',$post->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Modifier</a>
+                    @can('Task edit')
+                    <a href="{{route('admin.tasks.edit',$task->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Modifier</a>
                     @endcan
 
-                    @can('Post delete')
-                    <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" class="inline">
+                    @can('Task delete')
+                    <form action="{{ route('admin.tasks.destroy', $task->id) }}" method="POST" class="inline">
                         @csrf
                         @method('delete')
                         <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Supprimer</button>
@@ -58,9 +58,9 @@
             </tbody>
           </table>
 
-          @can('Post access')
+          @can('Task access')
           <div class="text-right p-4 py-10">
-            {{ $posts->links() }}
+            {{ $tasks->links() }}
           </div>
           @endcan
         </div>

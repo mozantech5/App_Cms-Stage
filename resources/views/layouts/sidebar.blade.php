@@ -7,7 +7,7 @@
                         </svg>
 
                     <a href="{{ route('admin.dashboard') }}">
-                        <span class="text-white text-2xl mx-2 font-semibold">Dashboard</span>
+                        <span class="text-white text-2xl mx-2 font-semibold">APP CMS</span>
                     </a>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         </path>
                     </svg>
     
-                    <span class="mx-3">Role</span>
+                    <span class="mx-3">Roles</span>
                 </a>
                 @endcanany
                 @canany('Permission access','Permission add','Permission edit','Permission delete')
@@ -48,7 +48,7 @@
                         </path>
                     </svg>
     
-                    <span class="mx-3">Permission</span>
+                    <span class="mx-3">Permissions</span>
                 </a>
                 @endcanany
                 
@@ -59,7 +59,7 @@
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </span>
     
-                    <span class="mx-3">User</span>
+                    <span class="mx-3">Utilisateurs</span>
                 </a>
                 @endcanany
                 
@@ -72,23 +72,51 @@
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>    
-                    <span class="mx-3">Post</span>
+                    <span class="mx-3">Tickets</span>
                 </a>
                 @endcanany
 
 
-                @canany('Mail access','Mail edit')
-                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.mail.index') ? 'active' : '' }}"
-                    href="{{ route('admin.mail.index')}}">
+                @canany('Task access','Task add','Task edit','Task delete')
+                 <a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 {{ Route::currentRouteNamed('admin.tasks.index') ? 'active' : '' }}"
+                    href="{{ route('admin.tasks.index')}}">
                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>
-                    <span class="mx-3">Setting</span>
+                    <span class="mx-3">Taches</span>
                 </a>
                 @endcanany
+
+
+
+                <!-- <div class="groupe">
+  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+  </svg>
+  <label class="mx-3" for="menu-deroulant">Groupe :</label>
+  <select class="mx-3" id="menu-deroulant" name="menu-deroulant">
+    <option value="projet">Projet</option>
+    <option value="tache">Tâche</option>
+    <option value="message">Message</option>
+    <option value="tickets">Tickets</option>
+  </select>
+</div>
+
+<script>
+  // Récupérez l'élément label et le menu déroulant
+  const groupeLabel = document.querySelector('.groupe label');
+  const menuDeroulant = document.querySelector('#menu-deroulant');
+
+  // Ajoutez un écouteur d'événement pour le clic sur le label "Groupe"
+  groupeLabel.addEventListener('click', () => {
+    // Ajoutez ou supprimez une classe qui affiche ou masque le menu déroulant
+    menuDeroulant.classList.toggle('afficher-menu');
+  });
+</script> -->
+ 
 
 
                 

@@ -4,15 +4,17 @@
             <div class="container mx-auto px-6 py-2">
                 <div class="text-right">
                   @can('User create')
-                    <a href="{{route('admin.users.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">New User</a>
+                    <a href="{{route('admin.users.create')}}" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Ajouter Utilisateur</a>
                   @endcan
+                  
                 </div>
+                
 
               <div class="bg-white shadow-md rounded my-6">
                 <table class="text-left w-full border-collapse">
                   <thead>
                     <tr>
-                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">User Name</th>
+                      <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Nom d'utilisateur</th>
                       <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light">Role</th>
                       <th class="py-4 px-6 bg-grey-lightest font-bold text-sm text-grey-dark border-b border-grey-light text-right">Actions</th>
                     </tr>
@@ -30,14 +32,14 @@
                         </td>
                         <td class="py-4 px-6 border-b border-grey-light text-right">
                           @can('User edit')
-                          <a href="{{route('admin.users.edit',$user->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Edit</a>
+                          <a href="{{route('admin.users.edit',$user->id)}}" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark text-blue-400">Modifier</a>
                           @endcan
 
                           @can('User delete')
                           <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" class="inline">
                               @csrf
                               @method('delete')
-                              <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Delete</button>
+                              <button class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark text-red-400">Supprimer</button>
                           </form>
                           @endcan
 

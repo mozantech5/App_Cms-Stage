@@ -4,7 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     ProfileController,
     MailSettingController,
+
 };
+use App\Http\Controllers\DashboardController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +48,15 @@ Route::get('/dashboard', function () {
 require __DIR__.'/front_auth.php';
 
 // Admin routes
-Route::get('/admin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('admin.dashboard');
+// Route::get('/admin/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth'])->name('admin.dashboard');
+
 
 require __DIR__.'/auth.php';
+
+
 
 
 
@@ -59,7 +67,9 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
         Route::resource('permissions','PermissionController');
         Route::resource('users','UserController');
         Route::resource('posts','PostController');
+        Route::resource('tasks','TaskController');
 
+        
         Route::get('/profile',[ProfileController::class,'index'])->name('profile');
         Route::put('/profile-update',[ProfileController::class,'update'])->name('profile.update');
         Route::get('/mail',[MailSettingController::class,'index'])->name('mail.index');
