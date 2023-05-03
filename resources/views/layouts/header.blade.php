@@ -26,9 +26,7 @@
         <div x-data="{ dropdownOpen: false }" class="relative">
             <button @click="dropdownOpen = ! dropdownOpen"
                 class="relative block h-8 w-8 rounded-full overflow-hidden shadow focus:outline-none">
-                <img class="h-full w-full object-cover"
-                    src="/images/{{ auth()->user()->profile }}"
-                    alt="Your avatar">
+                <img src="/images/mzn.jpg" class="h-full w-full object-cover">
             </button>
 
             <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"
@@ -44,7 +42,7 @@
                 @csrf
                     <a href="{{ route('admin.logout') }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Logout</a>
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Déconnexion</a>
                 </form>
             </div>
         </div>

@@ -5,7 +5,7 @@
                 <h3 class="text-gray-700 text-3xl font-medium">
                     Bienvenue : {{ auth()->user()->name }}</h3>                
 
-                <p>Role : <b>
+                <p>Rôle : <b>
                     @foreach(auth()->user()->roles as $role)
                         {{ $role->name }}
                     @endforeach 
@@ -18,12 +18,12 @@
                     </div>
 
                     <div class="bg-green-500 rounded-lg px-4 py-6 m-4 flex-grow-0" style="width: 200px;">
-                        <h4 class="text-white text-lg font-medium mb-2">Projets</h4>
-                        <p class="text-white text-4xl font-bold">{{ $tasksCount }}</p>
+                        <h4 class="text-white text-lg font-medium mb-2">Rôles</h4>
+                        <p class="text-white text-4xl font-bold">{{ $role->count() }}</p>
                     </div>
 
                     <div class="bg-yellow-500 rounded-lg px-4 py-6 m-4 flex-grow-0" style="width: 200px;">
-                        <h4 class="text-white text-lg font-medium mb-2">Taches</h4>
+                        <h4 class="text-white text-lg font-medium mb-2">Tâches</h4>
                         <p class="text-white text-4xl font-bold">{{ $tasksCount }}</p>
                     </div>
 

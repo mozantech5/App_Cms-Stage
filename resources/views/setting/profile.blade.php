@@ -8,7 +8,7 @@
                           @csrf
                           @method('put')
                           <div class="flex flex-col space-y-2">
-                            <label for="name" class="text-gray-700 select-none font-medium">User Name</label>
+                            <label for="name" class="text-gray-700 select-none font-medium">Nom d'utilisateur</label>
                             <input id="name" type="text" name="name" value="{{ old('name',$user->name) }}"
                               placeholder="Enter name" class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200"
                             />
@@ -21,7 +21,7 @@
                             />
                         </div>
 
-                        <div class="flex text-gray-500 mt-5">
+                        <!-- <div class="flex text-gray-500 mt-5">
                             <div class="bg-white rounded-lg">
                               <div class="" x-data="imageData()">
                                 <div x-show="previewUrl == '' && imgurl == ''">
@@ -49,44 +49,14 @@
 
                               </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="text-center mt-16 mb-16">
-                          <button type="submit" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Update</button>
+                          <button type="submit" class="bg-blue-500 text-white font-bold px-5 py-1 rounded focus:outline-none shadow hover:bg-blue-500 transition-colors ">Modifier</button>
                         </div>
                   </div>
             </div>
         </main>
     </div>
 </div>
-
-
-<script>
-    function imageData() {
-        var files = document.getElementById("thumbnailprev").files;
-        if(files.length == 0){
-            var url = '/images/'+{!! json_encode($user->profile) !!};
-        }else{
-            url = '';
-        }
-      return {
-        previewUrl: "",
-        imgurl: url,
-        updatePreview() {
-          var reader, files = document.getElementById("thumbnailprev").files;
-          reader = new FileReader();
-          reader.onload = e => {
-            this.previewUrl = e.target.result;
-          };
-          reader.readAsDataURL(files[0]);
-        },
-        clearPreview() {
-          document.getElementById("thumbnailprev").value = null;
-          this.previewUrl = "";
-          this.imgurl     = "";
-        }
-      };
-    }
-
-</script>
 </x-app-layout>

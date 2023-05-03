@@ -46,6 +46,7 @@ class UserController extends Controller
     {
         $roles = Role::get();
         return view('setting.user.new',['roles'=>$roles]);
+      
     }
 
     /**
@@ -68,7 +69,7 @@ class UserController extends Controller
             'password'=> bcrypt($request->password),
         ]);
         $user->syncRoles($request->roles);
-        return redirect()->back()->withSuccess('User created !!!');
+        return redirect()->back()->withSuccess('Utilisateur créé !!!');
     }
 
     /**
@@ -119,7 +120,7 @@ class UserController extends Controller
         $user->update($validated);
 
         $user->syncRoles($request->roles);
-        return redirect()->back()->withSuccess('User updated !!!');
+        return redirect()->back()->withSuccess('Utilisateur édité !!!');
     }
 
     /**
@@ -128,9 +129,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function destroy(User $user)
     {
-        $role->delete();
-        return redirect()->back()->withSuccess('Role deleted !!!');
+        $user->delete();
+        return redirect()->back()->withSuccess('Utilisateur supprimé !!!');
     }
 }

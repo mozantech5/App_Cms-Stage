@@ -63,7 +63,7 @@ class TaskController extends Controller
         $data= $request->all();
         $data['user_id'] = Auth::user()->id;
         $Task = Task::create($data);
-        return redirect()->back()->withSuccess('Task created !!!');
+        return redirect()->back()->withSuccess('Tache créé !!!');
     }
 
     /**
@@ -98,7 +98,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $task->update($request->all());
-        return redirect()->back()->withSuccess('Task updated !!!');
+        return redirect()->back()->withSuccess('Tache édité !!!');
     }
 
     /**
@@ -110,6 +110,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return redirect()->back()->withSuccess('Task deleted !!!');
+        return redirect()->back()->withSuccess('Tache supprimé !!!');
     }
 }

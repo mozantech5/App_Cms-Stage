@@ -35,7 +35,7 @@
                         </path>
                     </svg>
     
-                    <span class="mx-3">Roles</span>
+                    <span class="mx-3">Rôles</span>
                 </a>
                 @endcanany
                 @canany('Permission access','Permission add','Permission edit','Permission delete')
@@ -86,39 +86,8 @@
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>
-                    <span class="mx-3">Taches</span>
+                    <span class="mx-3">Tâches</span>
                 </a>
-                @endcanany
-
-
-
-                <!-- <div class="groupe">
-  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-  </svg>
-  <label class="mx-3" for="menu-deroulant">Groupe :</label>
-  <select class="mx-3" id="menu-deroulant" name="menu-deroulant">
-    <option value="projet">Projet</option>
-    <option value="tache">Tâche</option>
-    <option value="message">Message</option>
-    <option value="tickets">Tickets</option>
-  </select>
-</div>
-
-<script>
-  // Récupérez l'élément label et le menu déroulant
-  const groupeLabel = document.querySelector('.groupe label');
-  const menuDeroulant = document.querySelector('#menu-deroulant');
-
-  // Ajoutez un écouteur d'événement pour le clic sur le label "Groupe"
-  groupeLabel.addEventListener('click', () => {
-    // Ajoutez ou supprimez une classe qui affiche ou masque le menu déroulant
-    menuDeroulant.classList.toggle('afficher-menu');
-  });
-</script> -->
- 
-
-
-                
+                @endcanany      
             </nav>
         </div>

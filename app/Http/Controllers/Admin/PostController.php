@@ -64,7 +64,7 @@ class PostController extends Controller
         $data= $request->all();
         $data['user_id'] = Auth::user()->id;
         $Post = Post::create($data);
-        return redirect()->back()->withSuccess('Post created !!!');
+        return redirect()->back()->withSuccess('Ticket créé !!!');
     }
 
     /**
@@ -99,7 +99,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update($request->all());
-        return redirect()->back()->withSuccess('Post updated !!!');
+        return redirect()->back()->withSuccess('Ticket édité !!!');
     }
 
     /**
@@ -111,6 +111,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->back()->withSuccess('Post deleted !!!');
+        return redirect()->back()->withSuccess('Ticket supprimé !!!');
     }
 }

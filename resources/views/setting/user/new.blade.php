@@ -40,7 +40,7 @@
                     />
                 </div>
 
-                <h3 class="text-xl my-4 text-gray-600">Role</h3>
+                <h3 class="text-xl my-4 text-gray-600">Rôle</h3>
                 <div class="grid grid-cols-3 gap-4">
                   @foreach($roles as $role)
                       <div class="flex flex-col justify-cente">

@@ -32,9 +32,8 @@
             </div>
         </header>
         <div class="container ">
-            <h1 class="text-black text-center font-black text-2xl ">Application Collaboratif</h1>
+        <img src="{{ asset('/images/home.png') }}" alt="Mon image">
         </div>
-        
     </main>
 
 </x-front-guest-layout>

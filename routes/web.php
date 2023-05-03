@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     ProfileController,
-    MailSettingController,
+    // MailSettingController,
 
 };
 use App\Http\Controllers\DashboardController;
@@ -26,18 +26,18 @@ Route::get('/', function () {
 });
 
 
-Route::get('/test-mail',function(){
+// Route::get('/test-mail',function(){
 
-    $message = "Testing mail";
+//     $message = "Testing mail";
 
-    \Mail::raw('Hi, welcome!', function ($message) {
-      $message->to('ajayydavex@gmail.com')
-        ->subject('Testing mail');
-    });
+//     \Mail::raw('Hi, welcome!', function ($message) {
+//       $message->to('ajayydavex@gmail.com')
+//         ->subject('Testing mail');
+//     });
 
-    dd('sent');
+//     dd('sent');
 
-});
+// });
 
 
 Route::get('/dashboard', function () {
@@ -72,6 +72,6 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->prefix('admin')
         
         Route::get('/profile',[ProfileController::class,'index'])->name('profile');
         Route::put('/profile-update',[ProfileController::class,'update'])->name('profile.update');
-        Route::get('/mail',[MailSettingController::class,'index'])->name('mail.index');
-        Route::put('/mail-update/{mailsetting}',[MailSettingController::class,'update'])->name('mail.update');
+        // Route::get('/mail',[MailSettingController::class,'index'])->name('mail.index');
+        // Route::put('/mail-update/{mailsetting}',[MailSettingController::class,'update'])->name('mail.update');
 });
